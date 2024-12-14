@@ -21,3 +21,6 @@ build: {
   }
 ### Install Electron
 npm i --save-dev electron
+*("type": "module", //in package.json)*
+### Create folder
+/src/electron/main.js
