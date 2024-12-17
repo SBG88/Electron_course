@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
 
   useEffect(() => {
-    window.electron.subscribeStatistics(stats => console.log(stats));
+    const unsub = window.electron.subscribeStatistics(stats => console.log(stats));
+    return unsub;
   }, [])
 
   return (
