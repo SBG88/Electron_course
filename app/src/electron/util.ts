@@ -22,7 +22,7 @@ export function ipcWebContentSend<Key extends keyof EventPayloadMapping>(
   payload: EventPayloadMapping[Key]
 ) {
   webContents.send(key, payload);
-};
+}
 
 export function validateEventFrame(frame: WebFrameMain) {
   console.log(frame.url)

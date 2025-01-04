@@ -17,7 +17,7 @@ export function useStatistics(dataPointCount: number) {
     );
     
     return unsub;
-  }, []);
+  }, [dataPointCount]);
 
   return value;
 }

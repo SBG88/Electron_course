@@ -1,8 +1,8 @@
 {
   "appId": "com.sergio.prepare",
   "files": ["dist-electron", "dist-react"],
-  "icon": "./desktopIcon.png",
-  "extraResources": ["dist-electron/preload.cjs"],
+  "extraResources": ["dist-electron/preload.cjs", "src/assets/**"],
+  "icon": "./icon.png",
   "mac": {
     "target": "dmg"
   },

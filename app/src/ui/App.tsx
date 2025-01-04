@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
-import reactLogo from './assets/react.svg'
 import './App.css'
 import { useStatistics } from './useStatistics'
-import { Chart } from './chart';
+import { Chart } from './Chart';
 
 function App() {
   const statistics = useStatistics(10);
@@ -11,11 +10,6 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1>Dinamic</h1>
       <div style={{ height: 120 }}>
         <Chart data={cpuUsage} maxDataPoints={10}/>
