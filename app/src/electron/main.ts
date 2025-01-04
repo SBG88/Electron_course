@@ -3,6 +3,8 @@ import { ipcMainHandle, isDev } from "./util.js";
 import {  getPreloadPath, getUIPath } from "./pathResolver.js";
 import { getStaticData, pollResources } from "./resourceManager.js";
 import { createTray } from "./tray.js";
+import { createMenu } from "./menu.js";
+
 
 app.on("ready", () => {
   const mainWindow = new BrowserWindow({
@@ -10,6 +12,7 @@ app.on("ready", () => {
       preload: getPreloadPath(),
     }
   });
+
   if (isDev()) {
     mainWindow.loadURL("http://localhost:5123")
   } else {
@@ -25,6 +28,8 @@ app.on("ready", () => {
   createTray(mainWindow);
 
   handleCloseEvents(mainWindow);
+
+  createMenu(mainWindow);
 });
 
 function handleCloseEvents(mainWindow: BrowserWindow) {
