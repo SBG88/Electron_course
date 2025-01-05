@@ -1,5 +1,5 @@
 import { app, BrowserWindow, Menu } from "electron";
-import { isDev } from "./util.js";
+import { ipcWebContentSend, isDev } from "./util.js";
 
 export function createMenu (mainWindow: BrowserWindow) {
   Menu.setApplicationMenu(
@@ -24,13 +24,16 @@ export function createMenu (mainWindow: BrowserWindow) {
         type: "submenu",
         submenu: [
           {
-            label: "CPU"
+            label: "CPU",
+            click: () => ipcWebContentSend("changeView", mainWindow.webContents, "CPU")
           },
           {
-            label: "RAM"
+            label: "RAM",
+            click: () => ipcWebContentSend("changeView", mainWindow.webContents, "RAM")
           },
           {
-            label: "STORAGE"
+            label: "STORAGE",
+            click: () => ipcWebContentSend("changeView", mainWindow.webContents, "STORAGE")
           },
         ]
       }

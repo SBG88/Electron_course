@@ -15,5 +15,5 @@ export function Chart(props: ChartProps) {
     ];
   }, [props.data, props.maxDataPoints]);
 
-  return <BaseChart data={preparedData} fill={""} stroke={""}/>
+  return <BaseChart data={preparedData} fill={"#ececec"} stroke={"#9fd3c7"}/>
 }
