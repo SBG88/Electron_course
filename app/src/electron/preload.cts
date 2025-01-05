@@ -11,6 +11,9 @@ electron.contextBridge.exposeInMainWorld("electron", {
     return ipcOn("changeView", (view) => {
       callback(view);
     })
+  },
+  sendFrameAction: (payload) => {
+    ipcSend("sendFrameAction", payload);
   }
 } satisfies Window['electron']);
 
@@ -29,4 +32,11 @@ function ipcOn<Key extends keyof EventPayloadMapping>(
   
   electron.ipcRenderer.on(key, cb);
   return () => electron.ipcRenderer.off(key, cb);
+}
+
+function ipcSend<Key extends keyof EventPayloadMapping>(
+  key: Key,
+  payload: EventPayloadMapping[Key]
+) { 
+  electron.ipcRenderer.send(key, payload);
 }

@@ -29,22 +29,25 @@ function App() {
   }, [])
 
   return (
-    <>
-      <h1>Dinamic</h1>
-      <h2></h2>
+    <div className="App">
+      <header>
+        <button
+          id='close'
+          onClick={() => window.electron.sendFrameAction("CLOSE")}
+        />
+        <button
+          id='minimize'
+          onClick={() => window.electron.sendFrameAction("MINIMIZE")}
+        />
+        <button
+          id='maximize'
+          onClick={() => window.electron.sendFrameAction("MAXIMIZE")}
+        />
+      </header>
       <div style={{ height: 120 }}>
         <Chart data={activeusages} maxDataPoints={10}/>
       </div> 
-      <h1>Static Data</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
